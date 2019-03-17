@@ -26,5 +26,5 @@ public interface CelebrityMapper {
      * @param name
      * @return
      */
-    Celebrity fuzzyFindCelebrity(@Param(value = "name") String name);
+    List<Celebrity> fuzzyFindCelebrity(@Param(value = "name") String name);
 }

@@ -26,7 +26,7 @@ public class CelebrityServiceImpl implements CelebrityMapper {
 
     /**模糊查询**/
     @Override
-    public Celebrity fuzzyFindCelebrity(String name){
+    public List<Celebrity> fuzzyFindCelebrity(String name){
         return celebrityMapper.fuzzyFindCelebrity(name);
     }
 }

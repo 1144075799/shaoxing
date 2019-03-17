@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shaoxing.api.dao.RelicsMapper">
+    <resultMap id="BaseResultMap" type="com.shaoxing.api.domain.Relics">
+        <id column="id" property="id"/>
+        <result column="category" property="category"/>
+        <result column="title" property="title"/>
+        <result column="img_url" property="img_url"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,category,title,img_url,content
+    </sql>
+
+
+
+    <!--查找所有的名人-->
+    <select id="findAllRelics" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from culture_relics
+    </select>
+
+    <!--查找指定的名人-->
+    <select id="findOneRelics" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from culture_relics
+        where title=#{title}
+    </select>
+
+    <select id="fuzzyFindRelics" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from culture_relics
+        where title like '%${title}%'
+    </select>
+
+</mapper>

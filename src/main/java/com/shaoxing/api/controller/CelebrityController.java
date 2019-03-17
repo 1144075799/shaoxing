@@ -35,14 +35,14 @@ public class CelebrityController {
     /**模糊查询**/
     @CrossOrigin
     @RequestMapping(value = "/fuzzyFindCelebrity",method = RequestMethod.POST)
-    public Celebrity fuzzyFindCelebrity(@RequestBody Celebrity celebrity){
+    public List<Celebrity> fuzzyFindCelebrity(@RequestBody Celebrity celebrity){
         String name=celebrity.getName();        //得到要查找的名人的名字
 
         System.out.println(name);
 
-        celebrity=celebrityService.fuzzyFindCelebrity(name);
+        List<Celebrity> celebrityList=celebrityService.fuzzyFindCelebrity(name);
 
-        return celebrity;
+        return celebrityList;
     }
 
 
