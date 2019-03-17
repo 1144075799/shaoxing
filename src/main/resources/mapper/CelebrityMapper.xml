@@ -30,5 +30,11 @@
         where name=#{name}
     </select>
 
+    <select id="fuzzyFindCelebrity" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from celebrity
+        where name like '%${name}%'
+    </select>
 
 </mapper>

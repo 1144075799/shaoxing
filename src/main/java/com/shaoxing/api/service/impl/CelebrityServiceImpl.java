@@ -18,8 +18,15 @@ public class CelebrityServiceImpl implements CelebrityMapper {
         return celebrityMapper.findAllCelebrity();
     }
 
+    /**查找指定的名人**/
     @Override
     public Celebrity findOneCelebrity(String name){
         return celebrityMapper.findOneCelebrity(name);
+    }
+
+    /**模糊查询**/
+    @Override
+    public Celebrity fuzzyFindCelebrity(String name){
+        return celebrityMapper.fuzzyFindCelebrity(name);
     }
 }

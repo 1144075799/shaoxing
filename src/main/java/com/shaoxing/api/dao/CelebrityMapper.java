@@ -20,4 +20,11 @@ public interface CelebrityMapper {
      * @return
      */
     Celebrity findOneCelebrity(@Param(value = "name") String name);
+
+    /**
+     * 模糊查询
+     * @param name
+     * @return
+     */
+    Celebrity fuzzyFindCelebrity(@Param(value = "name") String name);
 }
