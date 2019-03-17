@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shaoxing.api.dao.CityMapper">
+    <resultMap id="BaseResultMap" type="com.shaoxing.api.domain.City">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,content
+    </sql>
+
+
+
+    <!--查找所有的古城信息-->
+    <select id="findAllCity" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from city
+    </select>
+
+    <!--查找指定的名人-->
+    <select id="findOneCity" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from city
+        where title=#{title}
+    </select>
+
+    <select id="fuzzyFindCity" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from city
+        where title like '%${title}%'
+    </select>
+
+</mapper>
