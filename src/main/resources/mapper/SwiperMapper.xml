@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shaoxing.api.dao.SwiperMapper">
+    <resultMap id="BaseResultMap" type="com.shaoxing.api.domain.Swiper">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,img_url
+    </sql>
+
+
+
+    <!--查找所有的水城轮播图信息-->
+    <select id="findAllWater" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from swiper_water_city
+    </select>
+
+
+    <!--查找所有的古城轮播图信息-->
+    <select id="findAllAncient" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from swiper_ancient_city
+    </select>
+</mapper>
